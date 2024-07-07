@@ -1,0 +1,6 @@
+[
+    {"Land": "Deutschland", "Unternehmen": "Unternehmen A", "Emissionen": 100},
+    {"Land": "Deutschland", "Unternehmen": "Unternehmen B", "Emissionen": 200},
+    {"Land": "USA", "Unternehmen": "Unternehmen C", "Emissionen": 300},
+    {"Land": "USA", "Unternehmen": "Unternehmen D", "Emissionen": 400}
+]
