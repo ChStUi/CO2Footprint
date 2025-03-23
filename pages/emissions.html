@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2-Footprint</title>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <script src="../scripts/controllers/emissionsController.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../scripts/tableComponent.js" defer></script>
+</head>
+<body>
+    <header>
+        <div id="header-container">
+            <div id="logo-title">
+                <img src="../public/images/logo.png" alt="Go Green Logo" id="logo">
+                <h1>CO2-Footprint - Go Green!</h1>
+            </div>
+        </div>
+        <nav id="oNavigation"></nav>
+    </header>
+    <button id="menu-toggle">☰</button>
+    <aside id="local-menu">
+        <nav id="sub-nav">
+            <ul>
+                <li><a href="#nav-filter">🔎 Filter</a></li>
+                <li><a href="#table-section">📊 Tabelle</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main id="app">
+        <section id="filter-section">
+            <h2 id="nav-filter">Filteroptionen</h2>
+            <div class="filter-container">
+                <input type="text" v-model="sFilterLand" :class="{'error': oInputError.sFilterLand}" placeholder="Nach Land filtern...">
+                <input type="text" v-model="sFilterUnternehmen" :class="{'error': oInputError.sFilterUnternehmen}" placeholder="Nach Unternehmen filtern...">                
+            </div>
+        <p v-if="sErrorMessage" class="error-message">{{ sErrorMessage }}</p>    
+        </section>
+        <section id="table-section">
+            <data-table :daten="gefilterteDaten" @sort="sortBy" :sErrorMessage="sErrorMessage"></data-table>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 CO2-Footprint - Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>

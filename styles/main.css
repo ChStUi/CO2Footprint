@@ -1,0 +1,339 @@
+/* Allgemeine Stile */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b3cfb3;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* Verhindert horizontales Scrollen */
+}
+
+/* Fixierter Header (schlanker gemacht) */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #2f7a2f;
+    padding: 8px 0;
+    /* Noch schmaler */
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Weniger Abstand */
+}
+
+#logo-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#logo {
+    height: 60px;
+    /* Noch kleiner */
+    width: auto;
+}
+
+#title {
+    font-size: 18px;
+    /* Kleinere Schrift */
+    color: white;
+    font-weight: bold;
+}
+
+/* Navigation (schlanker Balken) */
+nav {
+    background: linear-gradient(to right, #2f7a2f, #4CAF50);
+    padding: 4px 0;
+    /* Weniger Höhe */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 4px 10px;
+    /* Kleinere Polsterung */
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+
+/* Burger Menü Button als Zettel */
+#menu-toggle {
+    position: fixed;
+    top: 145px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #2f7a2f;
+    border: 1px solid #2f7a2f;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    font-weight: bold;
+}
+
+html[lang="en"] #menu-toggle,
+html[lang="de"] #menu-toggle {
+    left: 40px;
+}
+
+html[lang="ar"] #menu-toggle,
+html[lang="he"] #menu-toggle {
+    right: 40px;
+}
+
+/* Lokales Menü als Burger-Menü (je nach Sprache links oder rechts) */
+#local-menu {
+    position: fixed;
+    top: 145px;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 998;
+}
+
+html[lang="en"] #local-menu,
+html[lang="de"] #local-menu {
+    left: -255px;
+    right: auto;
+}
+
+html[lang="ar"] #local-menu,
+html[lang="he"] #local-menu {
+    right: -255px;
+    left: auto;
+}
+
+#local-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#local-menu ul li {
+    margin: 10px 0;
+}
+
+#local-menu ul li a {
+    text-decoration: none;
+    color: #2f7a2f;
+    font-weight: bold;
+    display: block;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+#local-menu ul li a:hover {
+    background-color: rgba(47, 122, 47, 0.3);
+}
+
+#sub-nav {
+    /* background: none !important;  Entfernt den grünen Verlauf */
+    position: fixed;
+    top: 10px;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.853);
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 998;
+
+}
+
+/* Zeigt das Menü an, wenn es aktiv ist */
+html[lang="en"] #local-menu.active,
+html[lang="de"] #local-menu.active {
+    transform: translateX(250px);
+}
+
+html[lang="ar"] #local-menu.active,
+html[lang="he"] #local-menu.active {
+    transform: translateX(-250px);
+}
+
+/* Rahmen für die Filter-Section */
+#filter-section {
+    border: 2px solid #ffffff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    background: rgba(243, 236, 236, 0.95);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Hauptinhalt */
+main {
+    min-height: 80vh;
+    margin-top: 110px;
+    /* Angepasst für kleineren Header */
+    padding: 20px;
+}
+
+main section:first-of-type {
+    padding-top: 50px;
+    /* Erhöht, um Überlappung mit Header zu vermeiden */
+}
+
+/* Tabellencontainer */
+.table-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+}
+
+/* Tabelle */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px solid white;
+    table-layout: fixed;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    /* Weniger Polsterung */
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Styling für die Input-Felder */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    /* Mehr Abstand zwischen den Input-Feldern */
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.filter-container input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Fehlerhafte Eingaben */
+.filter-container input.error {
+    border-color: red !important;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Weißes H1 */
+h1 {
+    color: white;
+}
+
+/* Transparenter Footer mit voller Breite */
+footer {
+    background: rgba(47, 122, 47, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* Weniger Höhe */
+    margin-top: 20px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+/* Responsives Design für kleine Bildschirme */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    #menu-toggle {
+        top: 160px
+    }
+
+    #local-menu {
+        top: 160px;
+    }
+
+    #local-menu ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        /* Stapelt die Input-Felder vertikal */
+        align-items: center;
+    }
+
+    .filter-container input {
+        width: 90%;
+        /* Vergrößert die Eingabefelder für bessere Lesbarkeit */
+    }
+
+    main section:first-of-type {
+        padding-top: 60px;
+        /* Extra Abstand für mobile Ansicht */
+    }
+
+
+}
